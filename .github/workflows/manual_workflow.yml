@@ -2,6 +2,12 @@ name: "Manual_Workflow"
 
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        description: "Name"
+        type: string
+        default: 'test input'
+      
 
 jobs:
   manual_demo:
