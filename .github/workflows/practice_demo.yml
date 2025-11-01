@@ -1,0 +1,14 @@
+name: practice_demo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Testing practice demo workflow"
+        run: echo "workflow tested successfully"
+
