@@ -15,4 +15,4 @@ jobs:
 
     steps:
       - name: "manual created workflow"
-        run: echo "manual workflow triggerd successfully!"
+        run: echo "manual workflow triggerd successfully! for inputs, ${{inputs.name}}"
