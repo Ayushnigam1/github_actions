@@ -1,0 +1,23 @@
+name: learn steps and jobs output and workflow call
+
+on:
+  workflow_call:
+    inputs:
+      env:
+        description: "enter environment"
+        required: true
+        type: string
+
+jobs:
+  step-output:
+    runs-on: ubuntu-latest
+    steps:
+      - name: set steps output
+        id: set_output
+        run: echo 'name=Ayush' >> $GITHUB_OUTPUT  
+
+      - name: access seted output
+        run: echo 'The value of output is ${{steps.set_output.name}}'
+        
+      - name: access called workflow input
+        run: echo 'environment is ${{inptus.env}}'
