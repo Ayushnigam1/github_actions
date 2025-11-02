@@ -1,4 +1,4 @@
-name: practice_demo
+name: practice_demo_with_workflow_calling
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
     needs: demo-build
     steps:
       - name: Deployed workflow
-        run: echo "Deployed the build successfully"
+        run: echo "Deployed the build successfully!"
       
     
       
