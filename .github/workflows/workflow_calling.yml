@@ -18,7 +18,7 @@ jobs:
         run: echo 'name=Ayush' >> $GITHUB_OUTPUT  
 
       - name: access seted output
-        run: echo 'The value of output is ${{steps.set_output.name}}'
+        run: echo 'The value of output is ${{steps.set_output.outputs.name}}'
         
       - name: access called workflow input
         run: echo 'environment is ${{inputs.env}}'
