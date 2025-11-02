@@ -1,0 +1,37 @@
+name: dynamic_deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Enter build Environment"
+        type: string
+        required: true
+jobs:
+  create-build:
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{steps.set_usr.outputs.name}}
+      version: ${{steps.version.outputs.app_version}}
+    steps:
+      - name: environment name
+        run: echo 'environment name is ${{github.event.inputs.env}}'
+
+      - name: set username
+        id: set_usr
+        run: echo 'name=Ayush' >> $GITHUB_OUTPUT
+
+      - id: version
+        run: echo 'app_version=1.0.${{github.run_number}}' >> $GITHUB_OUTPUT
+
+  show-details:
+    needs: create-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: info
+        run: |
+              'echo Deploying the version ${{needs.create-build.outputs.version}} \
+              to environment ${{github.event.inputs.env}} by ${{need.create-build.outputs.name}}'
+    
+    
+        
