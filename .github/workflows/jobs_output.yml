@@ -30,8 +30,8 @@ jobs:
     steps:
       - name: info
         run: |
-              'echo Deploying the version ${{needs.create-build.outputs.version}} \
-              to environment ${{github.event.inputs.env}} by ${{needs.create-build.outputs.name}}'
+              "echo Deploying the version ${{needs.create-build.outputs.version}} \
+              to environment ${{github.event.inputs.env}} by ${{needs.create-build.outputs.name}}"
     
     
         
