@@ -17,6 +17,11 @@ jobs:
     
       - name: "Testing practice demo-build workflow"
         run: echo "workflow build successfully"
+
+  workflow-calling:
+    uses: ./.github/workflows/workflow_calling.yml
+    with:
+      env: production
         
   Deploy-build:
     runs-on: ubuntu-latest
