@@ -5,10 +5,33 @@ on:
     branches: [main]
 
 jobs:
-  demo:
+  demo-build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Testing practice demo workflow"
-        run: echo "workflow tested successfully"
+      - name: Checkout
+        uses: actions/checkout@v5
+        
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+    
+      - name: "Testing practice demo-build workflow"
+        run: echo "workflow build successfully"
+        
+  Deploy-build:
+    runs-on: ubuntu-latest
+    needs: demo-build
+    steps:
+      - name: Deployed workflow
+        run: echo "Deployed the build successfully"
+      
+    
+      
+      
 
