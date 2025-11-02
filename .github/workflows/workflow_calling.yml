@@ -20,4 +20,4 @@ jobs:
         run: echo 'The value of output is ${{steps.set_output.name}}'
         
       - name: access called workflow input
-        run: echo 'environment is ${{inptus.env}}'
+        run: echo 'environment is ${{inputs.env}}'
